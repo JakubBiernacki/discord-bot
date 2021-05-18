@@ -1,3 +1,5 @@
+import { MessageEmbed } from "discord.js";
+
 let intervals = []
 const spam = async (client, message, command, ...args) => {
 
@@ -24,11 +26,12 @@ const spam = async (client, message, command, ...args) => {
       break;
 
     default:
-      message.channel.send('spam help')
+      message.channel.send(help())
       break;
   }
 
 }
+
 
 const start = (message, msg, time = 0, interval = 1) => {
 
@@ -76,6 +79,18 @@ const private_msg = async (client, id, msg, time = 0, interval = 1) => {
   }
 }
 
+const help = () => {
+  const embed = new MessageEmbed()
+    .setTitle('Spam 💬')
+    .setColor('#ac00e6  ')
+    .setDescription('Polecenie $spam')
+    .addFields(
+      { name: 'Spam 📨', value: '$spam start [wiadomość] [czas trwania: sec] [co ile: sec]' },
+      { name: 'Stop spam 🛑', value: '$spam stop' },
+      { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' }
+    )
+  return embed
+}
 
 
 export default spam
