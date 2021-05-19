@@ -4,6 +4,7 @@ dotenv.config()
 
 import getJoke from "./commands/joke.js";
 import spam from "./commands/spam.js";
+import show from "./commands/show.js";
 import help from "./commands/help.js";
 
 
@@ -27,8 +28,6 @@ client.on('message', async (message) => {
       .substring(PREFIX.length)
       .split(/ +/g)
 
-    console.log(CMD_NAME);
-    console.log(args);
 
 
     switch (CMD_NAME) {
@@ -42,6 +41,10 @@ client.on('message', async (message) => {
 
         await spam(client, message, ...args)
 
+        break;
+
+      case 'show':
+        show(message, ...args)
         break;
 
       case 'help':
