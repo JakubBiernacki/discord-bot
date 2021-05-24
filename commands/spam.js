@@ -3,6 +3,7 @@ import { spamHelp } from "./help.js"
 let intervals = []
 let alerts = []
 
+
 const spam = async (client, message, command, ...args) => {
   switch (command) {
     case "start":
@@ -34,7 +35,17 @@ const spam = async (client, message, command, ...args) => {
 
       break
 
+    case "clear":
+      message.react("🗑️")
+      intervals.forEach((e) => clearInterval(e))
+      intervals = []
+      alerts.forEach((e) => clearTimeout(e.setTime))
+      alerts = []
+
+      break
+
     default:
+      message.react("⚠️")
       message.channel.send(spamHelp())
       break
   }
@@ -103,19 +114,22 @@ const private_msg = async (client, id, msg, time = 0, interval = 1) => {
 const alert_msg = (message, msg, time = 0, interval = 1, startTime) => {
   const alertObj = alert(message, msg, time, interval, startTime, startTime)
 
-  setTimeout(() => {
+  const alertTime = setTimeout(() => {
     const index = alerts.findIndex((el) => el === alertObj)
-
+    
     console.log(index)
     alerts.splice(index, 1)
+    
     start(message, msg, time, interval)
   }, alertObj.start)
+
+  alertObj.setTime = alertTime
 
   message.react("⏱️")
   message.reply(`Alert ustwiony na godzine ${startTime}`)
 }
 
-const private_alert_msg = async(
+const private_alert_msg = async (
   client,
   message,
   userId,
@@ -135,12 +149,14 @@ const private_alert_msg = async(
     `${startTime} user: ${user.username}`
   )
 
-  setTimeout(async () => {
+  const alertTime = setTimeout(async () => {
     const index = alerts.findIndex((el) => el === alertObj)
 
     alerts.splice(index, 1)
     await private_msg(client, userId, msg, time, interval)
   }, alertObj.start)
+
+  alertObj.setTime = alertTime
 
   message.react("⏰")
   message.reply(

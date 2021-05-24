@@ -12,6 +12,7 @@ const help = () => {
       { name: 'Spam alert⏱️', value: '$spam alert [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
       { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Spam alert na PV ⏰', value: '$spam private-alert [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
+      { name: 'Usuwa alerty i czyści pamięć podręczną🗑️', value: '$spam clear' },
       { name: 'Pokazuje planowane alerty⌛', value: '$show alerts' },
     )
 
@@ -29,7 +30,7 @@ const spamHelp = () => {
       { name: 'Spam alert⏱️', value: '$spam alert [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
       { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Spam alert na PV ⏰', value: '$spam private-alert [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
-      { name: 'Pokazuje planowane alerty⌛', value: '$show alerts' },
+      { name: 'Usuwa alerty i czyści pamięć podręczną🗑️', value: '$spam clear' },
     )
   return embed
 }

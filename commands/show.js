@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { alerts } from "./spam.js";
 
-const show = (message, command, ...args) => {
+const show = (message, command) => {
 
   switch (command) {
     case "alerts":
