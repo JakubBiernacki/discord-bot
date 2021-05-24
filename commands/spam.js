@@ -18,7 +18,7 @@ const spam = async (client, message, command, ...args) => {
       break
 
     case "private-alert":
-      private_alert_msg(client, message, ...args)
+      await private_alert_msg(client, message, ...args)
 
       break
 
@@ -115,7 +115,7 @@ const alert_msg = (message, msg, time = 0, interval = 1, startTime) => {
   message.reply(`Alert ustwiony na godzine ${startTime}`)
 }
 
-const private_alert_msg = (
+const private_alert_msg = async(
   client,
   message,
   userId,
@@ -124,7 +124,7 @@ const private_alert_msg = (
   interval = 1,
   startTime
 ) => {
-  const user = message.guild.members.cache.get(userId).user
+  const user = await client.users.fetch(userId);
 
   const alertObj = alert(
     message,
