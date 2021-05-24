@@ -9,8 +9,10 @@ const help = () => {
       { name: 'Śmieszny żart 😉', value: '$joke' },
       { name: 'Spam 📨', value: '$spam start [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Stop spam 🛑', value: '$spam stop' },
-      { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Spam alert⏱️', value: '$spam alert [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
+      { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
+      { name: 'Spam alert na PV ⏰', value: '$spam private-alert [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
+      { name: 'Pokazuje planowane alerty⌛', value: '$show alerts' },
     )
 
   return embed
@@ -24,8 +26,10 @@ const spamHelp = () => {
     .addFields(
       { name: 'Spam 📨', value: '$spam start [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Stop spam 🛑', value: '$spam stop' },
-      { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
       { name: 'Spam alert⏱️', value: '$spam alert [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
+      { name: 'Spam na PV 📩', value: '$spam private [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec]' },
+      { name: 'Spam alert na PV ⏰', value: '$spam private-alert [id użytkownika] [wiadomość] [czas trwania: sec] [co ile: sec] [hh:mm:ss]' },
+      { name: 'Pokazuje planowane alerty⌛', value: '$show alerts' },
     )
   return embed
 }
